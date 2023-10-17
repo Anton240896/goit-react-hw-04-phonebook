@@ -85,7 +85,7 @@ const PhoneBookSchema = Yup.object().shape({
     .required('Phone number is required!'),
 });
 
-export const ContactForm = ({ addContact }) => {
+export const ContactForm = ({ onAdd }) => {
   return (
     <Formik
       initialValues={{
@@ -94,7 +94,7 @@ export const ContactForm = ({ addContact }) => {
       }}
       validationSchema={PhoneBookSchema}
       onSubmit={(values, actions) => {
-        addContact(values);
+        onAdd(values);
         actions.resetForm();
       }}
     >
