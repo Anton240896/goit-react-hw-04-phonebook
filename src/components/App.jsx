@@ -15,7 +15,9 @@ import { nanoid } from 'nanoid';
 /*======== HOOKS =======*/
 
 export const App = () => {
-  const [contacts, setContacts] = useState([]);
+  const [contacts, setContacts] = useState(() => {
+    return JSON.parse(localStorage.getItem('contacts')) || [];
+  });
   const [filter, setFilter] = useState('');
 
   /*  ========= ADDING TO LOCAL STORAGE ========*/
